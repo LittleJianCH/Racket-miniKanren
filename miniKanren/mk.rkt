@@ -53,6 +53,12 @@
          ((a f) (cons a (take (and n (- n 1)) f))))))))
 
 (define empty-a '(() () ()))
+
+(define-syntax defrel
+  (syntax-rules ()
+    ((_ (x ...) g ...)
+     (define (x ...)
+       (conde (g ...))))))
   
 (define-syntax run
   (syntax-rules ()
